@@ -14,7 +14,7 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Verified that all sensors worked together without errors.</li>
 </ul>
 
-<img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/Sensors.jpeg" width = "50%" height="50%" alt="">
+<img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/Sensors.jpeg" width = "30%" height="30%" alt="">
 
 ### Step 3: ThingSpeak Setup
 <ul>
@@ -37,7 +37,7 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Verified that all sensor values were displayed correctly in real time.</li>
 </ul>
 
-<img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/all%20sensors.jpeg" width = "50%" height = "50%" alt="">
+<img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/all%20sensors.jpeg" width = "30%" height = "30%" alt="">
 
 ### Step 6: Web Dashboard and Sensor Control
 <ul>
@@ -47,4 +47,4 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Verified that the dashboard updates in real time and provides a user-friendly interface for monitoring and controlling the sensors.</li>
 </ul>
 
-<img src="" alt="">
+<img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/sensors%20graph.jpeg" width = "30%" height = "30%" alt="">
