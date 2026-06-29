@@ -14,7 +14,7 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Verified that all sensors worked together without errors.</li>
 </ul>
 
-<img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/Sensors.jpeg" width = "50%" alt="">
+<img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/Sensors.jpeg" width = "50%" height="50%" alt="">
 
 ### Step 3: ThingSpeak Setup
 <ul>
