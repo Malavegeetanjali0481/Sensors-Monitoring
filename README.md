@@ -52,3 +52,6 @@ The equipped with multiple environmental sensors to collect real-time data and d
 ### Step 7: Result
 Final video
 <!-- Uploading "sensors video.mp4"... -->
+<video width="400" controls>
+  <source src="" type="video/mp4">
+</video>
