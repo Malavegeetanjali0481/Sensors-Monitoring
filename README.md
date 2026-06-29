@@ -53,5 +53,5 @@ The equipped with multiple environmental sensors to collect real-time data and d
 Final video
 <!-- Uploading "sensors video.mp4"... -->
 <video width="400" controls>
-  <source src="" type="video/mp4">
+  <source src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/sensors%20video.mp4" type="video/mp4">
 </video>
