@@ -6,14 +6,13 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Connected each sensor individually to the ESP32.</li>
   <li>Tested every sensor using separate Arduino programs to ensure correct operation.</li>
 </ul>
-## Step 2: Sensor Integration
+### Step 2: Sensor Integration
 <ul>
 <li>Connected all the sensors to the ESP32 using a breadboard. </li>
   <li>Combined the individual sensor programs into a single Arduino program.</li>
   <li>Verified that all sensors worked together without errors.</li>
 </ul>
 ## Step 3: ThingSpeak Setup
-
 <ul>
 <li>Created a new ThingSpeak channel. </li>
   <li>Added fields for each sensor (Temperature, Humidity, Gas, Flame, and Soil Moisture).</li>
