@@ -14,7 +14,7 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Verified that all sensors worked together without errors.</li>
 </ul>
 
-<img src="https://github.com/Malavegeetanjali0481/Aicte_Edunet_AI_ML/blob/main/Screenshot%202025-07-13%20205441.png" width = "50%" alt="">
+<img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/Sensors.jpeg" width = "50%" alt="">
 
 ### Step 3: ThingSpeak Setup
 <ul>
