@@ -14,6 +14,8 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Verified that all sensors worked together without errors.</li>
 </ul>
 
+<img src="https://github.com/Malavegeetanjali0481/Aicte_Edunet_AI_ML/blob/main/Screenshot%202025-07-13%20205441.png" alt="">
+
 ### Step 3: ThingSpeak Setup
 <ul>
 <li>Created a new ThingSpeak channel. </li>
@@ -35,6 +37,8 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Verified that all sensor values were displayed correctly in real time.</li>
 </ul>
 
+<img src="" alt="">
+
 ### Step 6: Web Dashboard and Sensor Control
 <ul>
 <li>Created a web dashboard to display all the ThingSpeak sensor data in one place for easy monitoring. </li>
@@ -42,3 +46,5 @@ The equipped with multiple environmental sensors to collect real-time data and d
   <li>Added Turn ON and Turn OFF buttons to enable or disable sensor monitoring from the web interface.</li>
   <li>Verified that the dashboard updates in real time and provides a user-friendly interface for monitoring and controlling the sensors.</li>
 </ul>
+
+<img src="" alt="">
