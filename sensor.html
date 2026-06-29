@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32 Smart IoT Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+
+    body{
+      font-family:Arial;
+      background:#f2f2f2;
+      margin:0;
+      padding:0;
+      text-align:center;
+    }
+
+    h1{
+      background:#4CAF50;
+      color:white;
+      padding:20px;
+      margin:0;
+    }
+
+    .container{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+      margin:20px;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:15px;
+      box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+    }
+
+    canvas{
+      width:100%;
+      max-height:300px;
+    }
+
+    .control-section{
+      width:90%;
+      margin:auto;
+      margin-top:20px;
+      margin-bottom:20px;
+    }
+
+    button{
+
+      width:250px;
+
+      padding:20px;
+
+      margin:15px;
+
+      font-size:20px;
+
+      border:none;
+
+      border-radius:15px;
+
+      color:white;
+
+      cursor:pointer;
+    }
+
+    .on-btn{
+      background:#4CAF50;
+    }
+
+    .off-btn{
+      background:#f44336;
+    }
+
+    button:hover{
+      opacity:0.9;
+    }
+
+    #status{
+
+      font-size:22px;
+
+      margin-top:10px;
+
+      font-weight:bold;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<h1>ESP32 Smart IoT Dashboard</h1>
+
+<!-- CONTROL SECTION -->
+
+<div class="card control-section">
+
+  <h2>Sensor Control Panel</h2>
+
+  <button class="on-btn" onclick="sensorOn()">
+    TURN ON SENSORS
+  </button>
+
+  <button class="off-btn" onclick="sensorOff()">
+    TURN OFF SENSORS
+  </button>
+
+  <div id="status">
+    Sensors Status : OFF
+  </div>
+
+</div>
+
+<!-- GRAPH SECTION -->
+
+<div class="container">
+
+  <div class="card">
+    <h2>Temperature Graph</h2>
+    <canvas id="tempChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Humidity Graph</h2>
+    <canvas id="humChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>IR Sensor Graph</h2>
+    <canvas id="irChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Flame Sensor Graph</h2>
+    <canvas id="flameChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Rain Sensor Graph</h2>
+    <canvas id="rainChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Sound Sensor Graph</h2>
+    <canvas id="soundChart"></canvas>
+  </div>
+
+  <div class="card" style="grid-column:1/3; width:50%; margin:auto;">
+    <h2>Soil Moisture Graph</h2>
+    <canvas id="soilChart"></canvas>
+  </div>
+
+</div>
+
+<script>
+
+/* =========================
+   THINGSPEAK SETTINGS
+========================= */
+
+const CHANNEL_ID = "3393380";
+
+const WRITE_API_KEY = "P616VZAY3GRI1VIS";
+
+/* API URL */
+
+const API_URL =`https://api.thingspeak.com/channels/3393380/feeds.json?results=15`;
+
+/* =========================
+   CONTROL FUNCTIONS
+========================= */
+
+/* TURN ON SENSORS */
+
+function sensorOn()
+{
+  fetch(
+  `https://api.thingspeak.com/update?api_key=P616VZAY3GRI1VIS&field8=1`
+  );
+
+  document.getElementById("status").innerHTML =
+  "Sensors Status : ON";
+}
+
+/* TURN OFF SENSORS */
+
+function sensorOff()
+{
+  fetch(
+  `https://api.thingspeak.com/update?api_key=P616VZAY3GRI1VIS&field8=0`
+  );
+
+  document.getElementById("status").innerHTML =
+  "Sensors Status : OFF";
+}
+
+/* =========================
+   GRAPH VARIABLES
+========================= */
+
+let labels = [];
+
+let tempValues = [];
+let humValues = [];
+let irValues = [];
+let flameValues = [];
+let rainValues = [];
+let soundValues = [];
+let soilValues = [];
+
+/* =========================
+   CREATE CHART FUNCTION
+========================= */
+
+function createChart(id,label,dataArray)
+{
+  return new Chart(
+  document.getElementById(id),
+  {
+    type:'line',
+
+    data:{
+      labels:labels,
+
+      datasets:[{
+        label:label,
+
+        data:dataArray,
+
+        borderWidth:2,
+
+        fill:false
+      }]
+    },
+
+    options:{
+      responsive:true,
+
+      animation:false
+    }
+  });
+}
+
+/* =========================
+   CHARTS
+========================= */
+
+const tempChart =
+createChart("tempChart","Temperature",tempValues);
+
+const humChart =
+createChart("humChart","Humidity",humValues);
+
+const irChart =
+createChart("irChart","IR Sensor",irValues);
+
+const flameChart =
+createChart("flameChart","Flame Sensor",flameValues);
+
+const rainChart =
+createChart("rainChart","Rain Sensor",rainValues);
+
+const soundChart =
+createChart("soundChart","Sound Sensor",soundValues);
+
+const soilChart =
+createChart("soilChart","Soil Moisture",soilValues);
+
+/* =========================
+   FETCH THINGSPEAK DATA
+========================= */
+
+async function getData()
+{
+  const response = await fetch(API_URL);
+
+  const data = await response.json();
+
+  const feeds = data.feeds;
+
+  /* Clear Old Values */
+
+  labels = [];
+
+  tempValues = [];
+  humValues = [];
+  irValues = [];
+  flameValues = [];
+  rainValues = [];
+  soundValues = [];
+  soilValues = [];
+
+  /* Read Feed Data */
+
+  feeds.forEach(feed => {
+
+    labels.push(
+      new Date(feed.created_at)
+      .toLocaleTimeString()
+    );
+
+    tempValues.push(feed.field1);
+
+    humValues.push(feed.field2);
+
+    irValues.push(feed.field3);
+
+    flameValues.push(feed.field4);
+
+    rainValues.push(feed.field5);
+
+    soundValues.push(feed.field6);
+
+    soilValues.push(feed.field7);
+
+  });
+
+  /* Update Charts */
+
+  updateChart(tempChart,tempValues);
+
+  updateChart(humChart,humValues);
+
+  updateChart(irChart,irValues);
+
+  updateChart(flameChart,flameValues);
+
+  updateChart(rainChart,rainValues);
+
+  updateChart(soundChart,soundValues);
+
+  updateChart(soilChart,soilValues);
+}
+
+/* =========================
+   UPDATE CHART FUNCTION
+========================= */
+
+function updateChart(chart,dataArray)
+{
+  chart.data.labels = labels;
+
+  chart.data.datasets[0].data = dataArray;
+
+  chart.update();
+}
+
+/* =========================
+   INITIAL LOAD
+========================= */
+
+getData();
+
+/* =========================
+   AUTO REFRESH
+========================= */
+
+setInterval(getData,15000);
+
+</script>
+
+</body>
+</html>
