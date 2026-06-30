@@ -50,6 +50,7 @@ The equipped with multiple environmental sensors to collect real-time data and d
 <img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/sensors%20graph.jpeg" width = "30%" height = "30%" alt="">
 
 ### Step 7: Result
-Final video
+Final video:
+
 "https://github.com/user-attachments/assets/19853f0c-ee53-4572-bb08-b760e17b28b9"
 
