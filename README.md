@@ -51,7 +51,5 @@ The equipped with multiple environmental sensors to collect real-time data and d
 
 ### Step 7: Result
 Final video
-<!-- Uploading "sensors video.mp4"... -->
-<video width="400" controls>
-  <source src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/sensors%20video.mp4" type="video/mp4">
-</video>
+"https://github.com/user-attachments/assets/19853f0c-ee53-4572-bb08-b760e17b28b9"
+
