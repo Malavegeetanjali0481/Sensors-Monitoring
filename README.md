@@ -52,5 +52,5 @@ The equipped with multiple environmental sensors to collect real-time data and d
 ### Step 7: Result
 Final video:
 
-https://github.com/user-attachments/assets/19853f0c-ee53-4572-bb08-b760e17b28b9
+https://github.com/user-attachments/assets/19853f0c-ee53-4572-bb08-b760e17b28b9 width = "30%" height = "30%"
 
