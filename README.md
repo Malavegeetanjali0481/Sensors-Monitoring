@@ -29,6 +29,20 @@ The equipped with multiple environmental sensors to collect real-time data and d
      <td width="60%">
   </tr>
 </table>
+<table>
+  <tr>
+    <td width="40%">
+      <img src="https://github.com/Malavegeetanjali0481/Sensors-Monitoring/blob/main/Sensors.jpeg" width = "30%" height="30%" alt="">
+    <ul>
+  <li>🌡 Temperature Sensor</li>
+   <li>🌧 Rain Sensor</li>
+   <li>🌱 Soil Moisture Sensor</li>
+  
+</ul>
+    </td>
+     
+  </tr>
+</table>
 
 
 ### Step 3: ThingSpeak Setup
