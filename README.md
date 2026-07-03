@@ -26,6 +26,7 @@ The equipped with multiple environmental sensors to collect real-time data and d
    <li>📡 IR Obstacle Sensor</li>
 </ul>
     </td>
+     <td width="60%">
   </tr>
 </table>
 
